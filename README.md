@@ -26,9 +26,9 @@
 # Index
 
 1. [💻 What is a Virtual Machine and What is it Used for? ⌨️](#1--what-is-a-virtual-machine-and-what-is-it-used-for-)
-2. [💿 Disk Partitions and Logical Volume Management 📀](#2--installing-the-virtual-machine-)
+2. [💿 Disk Partitions and Logical Volume Management 📀](#2--disk-partitions-and-logical-volume-management-)
 3. [🛡️ AppArmor 🔰](#3--apparmor-)
-4. [⬆️ Sudo ⛔](#4--virtual-machine-setup-%EF%B8%8F)
+4. [⬆️ Sudo ⛔](#4--sudo-)
 5. [📚 Apt and Aptitude 📖](#5--script-)
 6. [🔒 How to Set a Strong Password Policy 🔑](#6--crontab-)
 7. [🌐 SSH 📶](#6--crontab-)
@@ -40,55 +40,28 @@
 
 ## 1- _What is a Virtual Machine and What is it Used for?_ 💿
 
-[CLICK HERE](https://www.debian.org/download.en.html) for the URL of the debian ISO. Ths is a direct link to debian.org/download.
+➡️ A Virtual Machine is a simulation of an environment which uses software instead of physical computer hardware to run programs or a different operating system.
 
-## 2- _Installing the Virtual machine_ 🛠
+➡️ It is useful, for example, in the cybersecurity field to do tests without a real risk of infecting your computer with malware or something else.
 
-A virtualization software is required to perform the installation. In this tutorial we will use [Virtual Box](https://www.virtualbox.org/). If you already have installed this software and you have the Debian ISO we can proceed.
+➡️ A Virtual Machine can be useful too for testing a different operative system without the need of disk partitioning.
 
-1 ◦ We need to open VirtualBox and click ```New```
 
-<img width="836" alt="Captura de pantalla 2022-07-13 a las 18 02 05" src="https://user-images.githubusercontent.com/66915274/178779265-38eade6e-2789-4597-89e9-5beca2d3921a.png">
+## 2- _Disk Partitions and Logical Volume Management_ 🛠
 
-2 ◦ We must choose a name for the machine and the folder which will locate it. **IMPORTANT** Store the machine created inside the sgoinfre folder located in your campus server; this is important because we will run out of memory space in our session and the installation will fail. (Ask your staff if you can't find it)
+There is three types of disk partitions: Primaries, Secondaries and Logicals.
 
-<img width="928" alt="Screen Shot 2022-10-23 at 2 57 11 PM" src="https://user-images.githubusercontent.com/66915274/197393458-dda8da5f-2362-4d36-b740-0951ebf03d3c.png">
+➡️ Primaries --> Limited to 4 primaries partitions. In this partitions is where the operative system is allocated. If you have 1 secondary partition your limit is 3 primaries.
 
-3 ◦ Select the total RAM memory which we will reserve for the machine.
+➡️ Secondaries --> Limited to 1 secondary partition. In this partition is where the logical partitions are allocated.
 
-<img width="685" alt="Captura de pantalla 2022-07-13 a las 13 06 05" src="https://user-images.githubusercontent.com/66915274/178781098-8aa07fbc-e1d2-4bee-8021-ddf052880364.png">
+➡️ Logicals --> The logical partitions can be part of the secondary or the total amount of it. This partitions allows us to separate different types of data and allocates different amounts of space for different purposes.
 
-4 ◦ Select the second option so we can create a virtual disk now.
+### What is a Swap Partition?
+A swap partition is for managing the RAM overflow. It's a space for give memory when the operative system decides that needs memory for active processes and the amount of available memory is insufficient.
 
-<img width="826" alt="Captura de pantalla 2022-07-13 a las 18 13 24" src="https://user-images.githubusercontent.com/66915274/178781390-289236e0-1732-4dd8-8d3d-34eb0a229a18.png">
-
-5 ◦ Choose the first option ```VDI``` since we downloaded a ISO.
-
-<img width="829" alt="Captura de pantalla 2022-07-13 a las 18 16 35" src="https://user-images.githubusercontent.com/66915274/178781999-a42c3c6c-bc1e-4ad5-8bc5-b4b3f811c3f2.png">
-
-6 ◦ Select the first option ```Dynamically allocated``` so it will allocate the memory of the fisical machine as it feels necessary while using the virtual machine until we reach the available limit.
-
-<img width="833" alt="Captura de pantalla 2022-07-13 a las 18 19 33" src="https://user-images.githubusercontent.com/66915274/178782529-fb309739-3169-4e20-b3e1-23d17a122a18.png">
-
-7 ◦ One we established the recommended ```12 GB``` we must click on ```Create```. If we are doing the bonus we might set ```30 GB```.
-
-<img width="835" alt="Captura de pantalla 2022-07-13 a las 18 25 20" src="https://user-images.githubusercontent.com/66915274/178783666-4fa624a3-9c38-4c45-b6a8-d476c2864200.png">
-
-8 ◦ It might seem that we have already finish the installation , but there's still some steps to do. Click on ```Settings```.
-
-<img width="831" alt="Captura de pantalla 2022-07-13 a las 18 30 46" src="https://user-images.githubusercontent.com/66915274/178784822-38228e96-ca37-4cc0-b3ca-551829e4c8c8.png">
-
-9 ◦ Now click on ```Storage``` , again click on the 💿 that we find on the right and click on ```Choose a disk file```.
-
-<img width="962" alt="Captura de pantalla 2022-07-13 a las 18 33 28" src="https://user-images.githubusercontent.com/66915274/178785148-2904cf4f-93c0-4866-a5d6-778390bddeb7.png">
-
-10 ◦ Select the ISO that we just downloaded and click ```Open```, then click on ```Ok```. 
-
-<img width="790" alt="Captura de pantalla 2022-07-13 a las 18 38 39" src="https://user-images.githubusercontent.com/66915274/178786115-24f93fde-bc01-4e60-bf8d-20d7a5ae83be.png">
-
-11. ◦ Once all this steps have been completed we can ```Start``` our new virtual machine.
-
-<img width="833" alt="Captura de pantalla 2022-07-13 a las 18 44 55" src="https://user-images.githubusercontent.com/66915274/178787317-aab80b53-8244-4ede-9c75-11fcf4efdd1c.png">
+### What is the Logical Volume Management or LVM?
+Logical Volume Management is a system of managing logical volumes or filesystems that is much more flexible than the traditional method of partitioning a disk into one or more segments and formatting it with a single filesystem.
 
 ## 3- AppArmor 🌀
 
@@ -233,7 +206,7 @@ Repeat you user name.
 
 <img width="794" alt="Captura de pantalla 2022-07-13 a las 20 39 30" src="https://user-images.githubusercontent.com/66915274/178807102-e2a9722e-791f-48a0-ae35-b05b36a37ed2.png">
 
-## 4- Virtual machine setup ⚙️
+## 4- _Sudo_ ⚙️
 
 ➤ First of all, we must select ```Debian GNU/Linux```.
 
@@ -247,7 +220,7 @@ Repeat you user name.
 
 ### We have set everything ready for starting the setup of our Debian virtual machine❗️
 
-### 4.1 - Installing sudo & configuration of user and groups 👤
+## 5 - Installing sudo & configuration of user and groups 👤
 
 1 ◦ The beginning of the installation starts with changing user to root so we can install sudo, for this purpouse we write ```su``` in the bash prompt and introduce the root password, in my case ```Hola42bcn```. Once we are done we write down the command ```apt install sudo``` so the package manager install the required packages for sudo.
 
@@ -289,7 +262,7 @@ Repeat you user name.
 
 <img width="183" alt="Screen Shot 2022-10-26 at 6 38 25 PM" src="https://user-images.githubusercontent.com/66915274/198084311-45a50162-ff89-4e7d-a3c5-45e7048520a4.png">
 
-### 4.2 - Installing & configuring SSH 📶
+## 6 - Installing & configuring SSH 📶
 
 🧠 <b> What is SSH❓</b> The acronym SSH stands for "Secure Shell." The SSH protocol was designed as a secure alternative to unsecured remote shell protocols. It utilizes a client-server paradigm, in which clients and servers communicate via a secure channel.
 
@@ -336,29 +309,11 @@ Edit the following line:
 <img width="713" alt="Captura de pantalla 2022-07-14 a las 3 56 56" src="https://user-images.githubusercontent.com/66915274/178880333-0e2ad7fd-674b-4b4f-b92a-25acbc36c8a5.png">
 
 
-### 4.3 Installing & configuring UFW 🔥🧱
+## 7 Installing & configuring UFW 🔥🧱
 
-🧠 <b>What is [UFW](https://en.wikipedia.org/wiki/Uncomplicated_Firewall)❓</b> It is a [firewall](https://en.wikipedia.org/wiki/Firewall_(computing)) which use the command line for setting up [iptables](https://en.wikipedia.org/wiki/Iptables) using a small number of easy commands.
 
-1 ◦ First things first, we need to install the packages for UFW, for that we will use ```sudo apt install ufw```, then when we are asked for confirmation type ```y``` and the installation will proceed
 
-<img width="771" alt="Captura de pantalla 2022-07-14 a las 19 28 55" src="https://user-images.githubusercontent.com/66915274/179045920-4a9aec64-b1d7-4785-89a1-4a299aae21a3.png">
-
-<img width="802" alt="Captura de pantalla 2022-07-14 a las 19 29 25" src="https://user-images.githubusercontent.com/66915274/179045994-19cdf6e0-be61-454b-9adc-ba1f9c2dfd84.png">
-
-2 ◦ When we are done with it, we want to start it using the command ```sudo ufw enable``` and then it have to show us the the *firewall is ative.*
-
-<img width="498" alt="Captura de pantalla 2022-07-14 a las 19 32 57" src="https://user-images.githubusercontent.com/66915274/179046565-307c042b-243e-4224-bcb2-d02859332352.png">
-
-3 ◦ Then we must allow our firewall to accept the connections that will happens in the 4242 port. What we will do is use ```sudo ufw allow 4242```. 
-
-<img width="514" alt="Captura de pantalla 2022-07-14 a las 19 34 12" src="https://user-images.githubusercontent.com/66915274/179046765-5277ec55-b8e4-4d4f-a617-a2a8758b80a8.png">
-
-4 ◦ Lastly we will check if everything done here is correct checking the actual state of our firewall. For that we will use ```sudo ufw status```. Alternatively ```sudo ufw status verbose``` or ```sudo ufw status numbered``` can be used.
-
-<img width="575" alt="Captura de pantalla 2022-07-14 a las 19 38 37" src="https://user-images.githubusercontent.com/66915274/179047574-8073045c-6e78-4b6f-8487-cb0f490a2cd0.png">
-
-### 4.4 Setting up the sudo policies 🔒
+## 8 Setting up the sudo policies 🔒
 
 1 ◦ Begining with this section, we will create a file in */etc/sudoerd.d/*. The file will serve the purpouse of storing our sudo policy. The command that we will use will be ```touch /etc/sudoers.d/sudo_config```.
 
@@ -404,7 +359,7 @@ Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/
 
 🟪 **PURPLE**	-> Folders that will be excluded of sudo
 
-### 4.5 Setting up a strong password policy 🔑
+## 9 Setting up a strong password policy 🔑
 
 1 ◦ First step will be editing the login.defs file.
 
