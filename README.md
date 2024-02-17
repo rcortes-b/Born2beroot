@@ -28,14 +28,15 @@
 1. [💻 What is a Virtual Machine and What is it Used for? ⌨️](#1--what-is-a-virtual-machine-and-what-is-it-used-for-)
 2. [💿 Disk Partitions and Logical Volume Management 📀](#2--disk-partitions-and-logical-volume-management-)
 3. [🛡️ AppArmor 🔰](#3--apparmor-%EF%B8%8F)
-4. [⚙️ Sudo ⛔](#4--sudo-)
-5. [📚 Apt and Aptitude 📖](#5--apt-and-aptitude-)
-6. [🔒 How to Set a Strong Password Policy 🔑](#6--how-to-set-a-strong-password-policy-)
-7. [🌐 SSH 📶](#7--ssh-)
-8. [🔥 FireWall 🧱](#8--firewall-)
-9. [👾 Scripts && Commads 🤖](#9--script-&&-commands-)
-10. [⏱️ Crontab ⏰](#10--crontab-)
-12. [⭐ Bonus - WordPress ⭐](#10--bonus-%EF%B8%8F)
+4. [⚙️ Sudo ⛔](#4--sudo-%EF%B8%8F)
+5. [📚 Apt and Aptitude 📖](#5---apt-and-aptitude-)
+6. [🔒 How to Set a Strong Password Policy 🔑](#6---how-to-set-a-strong-password-policy-)
+7. [🌐 SSH 📶](#7-ssh-)
+8. [🔥 FireWall 🧱](#8-firewall-)
+9. [👾 Scripts && Commads 🤖](#9-script--commands-)
+10. [⏱️ Crontab ⏰](#10-crontab-)
+11. [⭐ Bonus - WordPress ⭐](#11--bonus---wordpress-)
+    .2. 
 
 ## 1- _What is a Virtual Machine and What is it Used for?_ 💻
 
