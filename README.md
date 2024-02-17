@@ -65,7 +65,7 @@ There is three types of disk partitions: Primaries, Secondaries and Logicals.
 ➤ Logical Volume Management is a system of managing logical volumes or filesystems that is much more flexible than the traditional method of partitioning a disk into one or more segments and formatting it with a single filesystem.
 
 
-## 3- AppArmor 🛡️
+## 3- _AppArmor_ 🛡️
 
 
 ➤ AppArmor is a Linux kernel security module which allows the system administrator to restrict the capabilities of a program.
@@ -91,7 +91,7 @@ There is three types of disk partitions: Primaries, Secondaries and Logicals.
 	Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
 
 
-## 5 - APT and Aptitude 📚
+## 5 - _APT and Aptitude_ 📚
 
 
 ➤ APT (Advanced Packaging Tool) is a free software user interface, under the conception of software package management.
@@ -107,8 +107,7 @@ There is three types of disk partitions: Primaries, Secondaries and Logicals.
    ↔️ When facing a package conflict, APT will not fix the issue but aptitude will suggest a resolution that can do the job.
 
 
-## 6 - How to Set a Strong Password Policy 🔒
-
+## 6 - _How to Set a Strong Password Policy_ 🔒
 
 First of all, I had gone to the file: "/etc/login.defs" file then edited PASS_MAX, PASS_MIN, PASS_WARN which means:
 		
@@ -130,7 +129,7 @@ After these rules, I edited the file: "etc/pam.d/common-password" that I got aft
 	-enforce_for_root [To apply the policy to the root user]
 
 
-## 7 SSH 📶
+## 7 _SSH_ 📶
 
 
 SSH is a protocol that grants remote access to a server through a secure channel in which all information is encrypted.
@@ -156,7 +155,7 @@ SSH is a protocol that grants remote access to a server through a secure channel
 After this command I could connect to my Virtual Machine from my original environment.
 
 
-## 8 FireWall 🧱
+## 8 _FireWall_ 🧱
 
 
 ➤ A firewall is a network security device that monitors incoming and outgoing traffic and decides whether to allow or block traffic based on a set of predefined security restrictions.
@@ -174,7 +173,7 @@ After this command I could connect to my Virtual Machine from my original enviro
 ↔️ sudo ufw deny ‘port_name’
 
 
-## 9 Scripts && Commands 👾
+## 9 _Scripts && Commands_ 👾
 
 
 ➤ In this part, I did a script which every time is executed displays some data of the environment.
@@ -206,7 +205,7 @@ For  example, awk ‘$1 == “Mem:” will search in the first line ($1) of a  s
 This name is given to the computer and attached to the network. Using the -I flag gives the IP address.
 
 
-## 10 Crontab ⏰
+## 10 _Crontab_ ⏰
 
 
 ➤ Crontab is a daemon used for automating tasks. We can set the time in the file: "sudo crontab -e"
@@ -224,7 +223,7 @@ This name is given to the computer and attached to the network. Using the -I fla
 ↔️ command → Where the command will be typed
 
 
-## 11- Bonus - WordPress ⭐
+## 11- _Bonus - WordPress_ ⭐
 
 ➤ I also did the bonus parte which was about creating a wordpress using the following software: Lighttpd (Web Server), MariaDB (Database), PHP (programming language used to develop dynamic web apps and interactive websites).
 
@@ -385,7 +384,7 @@ I’ve chosen LiteSpeed which is a web server software (like Lighttpd).
 
 ==========================================================================================
 
-➤ Well, that's all.
+✅ Well, that's all ✅
 
 ➤ At first, i though this project was going to be boring and tedious but contrary to what I thought it has been quite an interesting project.
 
