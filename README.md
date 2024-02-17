@@ -36,7 +36,20 @@
 9. [👾 Scripts && Commads 🤖](#9-script--commands-)
 10. [⏱️ Crontab ⏰](#10-crontab-)
 11. [⭐ Bonus - WordPress ⭐](#11--bonus---wordpress-)
-    .2. 
+
+    11.2. [⭐ Lighttpd ⭐](#11-2-lighttpd)
+
+    11.3. [⭐ MariaDB ⭐](#11-3-mariadb)
+
+    11.4. [⭐ PHP ⭐](#11-4-php)
+
+    11.5. [⭐ WordPress ⭐](#11-5-wordpress)
+
+    11.6. [⭐ WordPress Configuration ⭐](#11-6-wordpress-configuration)
+
+    11.7. [⭐ OpenLiteSpeed ⭐](#11-7-openlitespeed)
+
+[Extra: Check my profile on the Intranet](#--check-my-profile-on-the-intra-of-42-school-%EF%B8%8F)
 
 ## 1- _What is a Virtual Machine and What is it Used for?_ 💻
 
