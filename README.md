@@ -27,7 +27,7 @@
 
 1. [💻 What is a Virtual Machine and What is it Used for? ⌨️](#1--what-is-a-virtual-machine-and-what-is-it-used-for-)
 2. [💿 Disk Partitions and Logical Volume Management 📀](#2--disk-partitions-and-logical-volume-management-)
-3. [🛡️ AppArmor 🔰](#3--apparmor-)
+3. [🛡️ AppArmor 🔰](#3--apparmor-%EF%B8%8F)
 4. [⚙️ Sudo ⛔](#4--sudo-)
 5. [📚 Apt and Aptitude 📖](#5--apt-and-aptitude-)
 6. [🔒 How to Set a Strong Password Policy 🔑](#6--how-to-set-a-strong-password-policy-)
