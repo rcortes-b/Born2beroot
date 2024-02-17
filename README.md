@@ -40,6 +40,7 @@
 
 ## 1- _What is a Virtual Machine and What is it Used for?_ 💻
 
+
 ➤ A Virtual Machine is a simulation of an environment which uses software instead of physical computer hardware to run programs or a different operating system.
 
 ➤ It is useful, for example, in the cybersecurity field to do tests without a real risk of infecting your computer with malware or something else.
@@ -48,6 +49,7 @@
 
 
 ## 2- _Disk Partitions and Logical Volume Management_ 💿
+
 
 There is three types of disk partitions: Primaries, Secondaries and Logicals.
 
@@ -63,19 +65,35 @@ There is three types of disk partitions: Primaries, Secondaries and Logicals.
 ### What is the Logical Volume Management or LVM?
 ➤ Logical Volume Management is a system of managing logical volumes or filesystems that is much more flexible than the traditional method of partitioning a disk into one or more segments and formatting it with a single filesystem.
 
+
 ## 3- AppArmor 🛡️
+
 
 ➤ AppArmor is a Linux kernel security module which allows the system administrator to restrict the capabilities of a program.
 
 ➤ AppArmor applies a set of rules (like a ‘profile’) to each program. The kernel queries AppArmor before each system call to find out if a process is authorized to perform such an operation.
 
+
 ## 4- _Sudo_ ⚙️
+
 
 ➤ The meaning of 'sudo' is 'super userdo
 
 ➤ Sudo is used to grant temporary access to a no root user and elevate the privileges to do some tasks, as it could be adding users or groups.
 
+➤ To establish sudo policies, I have created a file in the directory: "/etc/sudoers.d/" which file will be named 'sudo_config' and it has to contain the following rules:
+
+	Defaults  passwd_tries=3
+	Defaults  badpass_message="Custom Error Message"
+	Defaults  logfile="/var/log/sudo/[file_name]"  , in this case sudo_log
+	Defaults  log_input, log_output
+ 	Defaults  iolog_dir="/var/log/sudo"
+ 	Defaults  requiretty
+	Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+
+
 ## 5 - APT and Aptitude 📚
+
 
 ➤ APT (Advanced Packaging Tool) is a free software user interface, under the conception of software package management.
 
@@ -85,55 +103,32 @@ There is three types of disk partitions: Primaries, Secondaries and Logicals.
 	
    ↔️ APT offers a command-line interface and aptitude a visual interface.
 	
-   ↔️ Aptitude offers you an interactive mode displaying a list of the software packages and allows you to choose which packages you want to install or uninstall.
+   ↔️ Aptitude offers an interactive mode displaying a list of the software packages and allows to choose which packages you want to install or uninstall.
 	
    ↔️ When facing a package conflict, APT will not fix the issue but aptitude will suggest a resolution that can do the job.
 
-## 6 - Installing & configuring SSH 📶
 
-🧠 <b> What is SSH❓</b> The acronym SSH stands for "Secure Shell." The SSH protocol was designed as a secure alternative to unsecured remote shell protocols. It utilizes a client-server paradigm, in which clients and servers communicate via a secure channel.
+## 6 - How to Set a Strong Password Policy 🔒
 
-1 ◦ First thing, we should update the system using ```sudo apt update```.
 
-<img width="774" alt="Captura de pantalla 2022-07-14 a las 3 09 44" src="https://user-images.githubusercontent.com/66915274/178864173-aa5a08cf-8562-4484-a60a-3e1c7a533a28.png">
+First of all, I had gone to the file: "/etc/login.defs" file then edited PASS_MAX, PASS_MIN, PASS_WARN which means:
+		
+↔️ Maximum of days that password will last
 
-2 ◦ Following up we will install the main tool for remote access with the SSH protocol, using OpenSSH. The installation requieres the package ```sudo apt install openssh-server```. When we are asked for confirmation we will write ```y```, and just then the installation will proceed.
+↔️ Minimum of days to change password since last password change
 
-<img width="772" alt="Captura de pantalla 2022-07-14 a las 3 14 52" src="https://user-images.githubusercontent.com/66915274/178865991-cdb90f12-ebd8-4583-bcbb-70f47c86abe6.png">
+↔ Number of days in which you’ll be warned before your password expires
 
-Anywan curious that the installation have been realices without problems we can use ```sudo service ssh status``` and it will show how is the state of it. **Active** must be show to continue.
+After these rules, I edited the file: "etc/pam.d/common-password" that I got after downloading a package named libpam-pwquality. In this file, I looked for the line ‘password requisite’ next to ‘retry = 3’ then I typed:
 
-<img width="702" alt="Captura de pantalla 2022-07-14 a las 3 53 59" src="https://user-images.githubusercontent.com/66915274/178876938-7fd74214-15df-4759-bf8d-52b53a8f4251.png">
-
-3 ◦ Going on, some files have been created and we need to configur them. For that we will use [Nano](https://en.wikipedia.org/wiki/GNU_Nano) or [VIM](https://en.wikipedia.org/wiki/Vim_(text_editor)) (we will need to install vim since it's not preinstalled using ```sudo apt install vim```) or any other text editor. First file that we will edit will be ```/etc/ssh/sshd_config```. If you are not on root you will not be able to edit the file; as you know, for switching to root we use ```su```.
-
-<img width="497" alt="Captura de pantalla 2022-07-14 a las 3 24 21" src="https://user-images.githubusercontent.com/66915274/178867150-273c75c1-c935-45f0-a551-1a115d3f6f6a.png">
-
-4 ◦ The ```#``` means that line it is commented; the lines that we will be edit have to be uncommented. Once we are editing the  file we need to update the following lines:
-
-➤ #Port 22 -> Port 4242
-
-<img width="807" alt="Captura de pantalla 2022-07-14 a las 3 31 04" src="https://user-images.githubusercontent.com/66915274/178867929-0f8be11e-d0ca-4445-af05-a693d01411bd.png">
-
-➤ #PermitRootLogin prohibit-password -> PermitRootLogin no
-
-<img width="798" alt="Captura de pantalla 2022-07-14 a las 3 34 13" src="https://user-images.githubusercontent.com/66915274/178868266-fc6d6684-8196-4021-b884-a047a443a3ec.png">
-
-When finish we have to save the changes and leave the file.
-
-5 ◦ Now with the file ```/etc/ssh/ssh_config```. (not ```sshd_config```)
-
-<img width="501" alt="Captura de pantalla 2022-07-14 a las 3 48 56" src="https://user-images.githubusercontent.com/66915274/178872582-8277e687-8ab7-4087-bd17-a71e5e86d5e6.png">
-
-Edit the following line: 
-
-➤ #Port 22 -> Port 4242
-
-<img width="795" alt="Captura de pantalla 2022-07-14 a las 3 50 29" src="https://user-images.githubusercontent.com/66915274/178875013-1969c13f-9e43-4f2a-a037-f384a8e87a78.png">
-
-6 ◦ Finally we must restart the ssh service so it can be updated. For that purpuse we will use ```sudo service ssh restart``` and once it is done we will check the service state with ```sudo service ssh status``` and confirm that everything is alright.
-
-<img width="713" alt="Captura de pantalla 2022-07-14 a las 3 56 56" src="https://user-images.githubusercontent.com/66915274/178880333-0e2ad7fd-674b-4b4f-b92a-25acbc36c8a5.png">
+	-minlen = 10 [minimum length of password]
+	-ucredit = -1 [minimum 1 Uppercase]
+	-dcredit = -1 [minimum 1 Digit]
+	-lcredit = -1 [minimum 1 Lowercase]
+	-maxrepeat = 3 [Password cannot have a character repeated three continuously times]
+	-reject_username [Password cannot contain the username]
+	-difok = 7 [At least seven different characters from last password]
+	-enforce_for_root [To apply the policy to the root user]
 
 
 ## 7 Installing & configuring UFW 🔥🧱
