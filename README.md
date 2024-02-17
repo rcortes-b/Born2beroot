@@ -25,9 +25,9 @@
 
 # Index
 
-1. [💻 What is a Virtual Machine and What is it Used for? ⌨️](#1--what-is-a-virtual-machine-and-what-is-it-used-for?-)
+1. [💻 What is a Virtual Machine and What is it Used for? ⌨️](#1--what-is-a-virtual-machine-and-what-is-it-used-for-)
 2. [💿 Disk Partitions and Logical Volume Management 📀](#2--installing-the-virtual-machine-)
-3. [🛡️ AppArmor 🔰](#3--installing-debian-)
+3. [🛡️ AppArmor 🔰](#3--apparmor-)
 4. [⬆️ Sudo ⛔](#4--virtual-machine-setup-%EF%B8%8F)
 5. [📚 Apt and Aptitude 📖](#5--script-)
 6. [🔒 How to Set a Strong Password Policy 🔑](#6--crontab-)
@@ -90,7 +90,7 @@ A virtualization software is required to perform the installation. In this tutor
 
 <img width="833" alt="Captura de pantalla 2022-07-13 a las 18 44 55" src="https://user-images.githubusercontent.com/66915274/178787317-aab80b53-8244-4ede-9c75-11fcf4efdd1c.png">
 
-## 3- Installing Debian 🌀
+## 3- AppArmor 🌀
 
 ➤ **You there, wait**❗️ Your eyesight is important 👀❗️ Making the window bigger will help: 
 
