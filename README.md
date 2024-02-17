@@ -49,7 +49,7 @@
 
     11.7. [⭐ OpenLiteSpeed ⭐](#11-7-openlitespeed)
 
-[Extra: Check my profile on the Intranet](#--check-my-profile-on-the-intra-of-42-school-%EF%B8%8F)
+[Extra: Check out my profile on the Intranet](#--check-my-profile-on-the-intra-of-42-school-%EF%B8%8F)
 
 ## 1- _What is a Virtual Machine and What is it Used for?_ 💻
 
@@ -407,5 +407,5 @@ I’ve chosen LiteSpeed which is a web server software (like Lighttpd).
 ***Most part of the theorical content has been obtained from the next guide: [https://github.com/gemartin99/Born2beroot-Tutorial/tree/main]
 
 
-### - Check my profile on the intra of 42 school ↙️
-[HERE]([https://profile.intra.42.fr/users/rcortes-])
+### - Check out my profile on the intra of 42 school ↙️
+[https://profile.intra.42.fr/users/rcortes-]
