@@ -117,7 +117,7 @@ First of all, I had gone to the file: "/etc/login.defs" file then edited PASS_MA
 
 ↔️ Minimum of days to change password since last password change
 
-↔ Number of days in which you’ll be warned before your password expires
+↔️ Number of days in which you’ll be warned before your password expires
 
 After these rules, I edited the file: "etc/pam.d/common-password" that I got after downloading a package named libpam-pwquality. In this file, I looked for the line ‘password requisite’ next to ‘retry = 3’ then I typed:
 
@@ -131,55 +131,49 @@ After these rules, I edited the file: "etc/pam.d/common-password" that I got aft
 	-enforce_for_root [To apply the policy to the root user]
 
 
-## 7 Installing & configuring UFW 🔥🧱
+## 7 SSH 📶
 
 
+SSH is a protocol that grants remote access to a server through a secure channel in which all information is encrypted.
 
-## 8 Setting up the sudo policies 🔒
+➤Main SSH Commands
+			
+↔️ sudo ssh service status
 
-1 ◦ Begining with this section, we will create a file in */etc/sudoerd.d/*. The file will serve the purpouse of storing our sudo policy. The command that we will use will be ```touch /etc/sudoers.d/sudo_config```.
+↔️ sudo service ssh
 
-<img width="511" alt="Captura de pantalla 2022-07-14 a las 22 00 40" src="https://user-images.githubusercontent.com/66915274/179072822-2f86bd8b-216e-45e4-a15b-8fe3a49149ff.png">
+↔️ sudo service ssh restart / start / stop
 
-2 ◦ Then we must create a directory as is asked in the subject in */var/log/* because each commands need to be logged, the input and output. We will use ```mkdir /var/log/sudo``` for our folder.
+➤ SSH Files
 
-<img width="502" alt="Captura de pantalla 2022-07-14 a las 21 56 53" src="https://user-images.githubusercontent.com/66915274/179072210-ad99e50d-fa57-494b-999d-3a80dd0f7849.png">
+↔️ /etc/ssh/ssh_config
 
-3 ◦ We must edit the file that we created in the first step of this section. Use any text editor, but for this guide as is in every screenshot we will use nano. Use ```nano /etc/sudoers.d/sudo_config```.
+↔️ /etc/ssh/sshd_config
 
-<img width="502" alt="Captura de pantalla 2022-07-14 a las 22 04 10" src="https://user-images.githubusercontent.com/66915274/179073389-5b2a9c16-811c-4133-87c6-479e770c880b.png">
+➤ To connect via SSH I allowed a port using the UFW Firewall then I typed in the terminal:
+	
+ ↔️ ssh -p [port_name] [user]@[ip_address]
 
-4 ◦ Once we are editing the file we must set it up with the following commands.
+After this command I could connect to my Virtual Machine from my original environment.
 
-```
-Defaults  passwd_tries=3
-Defaults  badpass_message="Mensaje de error personalizado"
-Defaults  logfile="/var/log/sudo/sudo_config"
-Defaults  log_input, log_output
-Defaults  iolog_dir="/var/log/sudo"
-Defaults  requiretty
-Defaults  secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
-```
 
-➤ As it should be on the file.
+## 8 FireWall 🧱
 
-<img width="1202" alt="Captura de pantalla 2022-07-16 a las 2 03 45" src="https://user-images.githubusercontent.com/66915274/179326003-1fd67295-4be2-47bd-98fc-d5821f5f1c4d.png">
 
-🤔 <b>What does each command❓ </b>
+➤ A firewall is a network security device that monitors incoming and outgoing traffic and decides whether to allow or block traffic based on a set of predefined security restrictions.
 
-![F5B5BED3-C144-4EDF-91AB-226533DD5B18_4_5005_c](https://user-images.githubusercontent.com/66915274/211846396-e3212104-b8ce-412c-ac1a-e4d3124dfba8.jpeg)
+➤ Main Commands
 
-🟩 **GREEN**	-> Total tries for entering the sudo password.
+↔️sudo ufw status enable
 
-🟥 **RED**		-> The message that will show when the password failed.
+↔️ sudo ufw status numbered
 
-🟨 **YELLOW**	-> Path where will the sudo logs will be stored.
+↔️ sudo ufw allow ‘port_name’
 
-🟦 **BLUE**	-> What will be logged.
+↔️ sudo ufw delete rule_name [using ufw status numbered]
 
-🟫 **BROWN**	-> TTY is required lol.
+↔️ sudo ufw deny ‘port_name’
 
-🟪 **PURPLE**	-> Folders that will be excluded of sudo
 
 ## 9 Setting up a strong password policy 🔑
 
