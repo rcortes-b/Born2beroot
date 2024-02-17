@@ -1,4 +1,4 @@
-# Born2beroot- A short introduction to System Administration and Virtual Machine
+# Born2beroot - A short introduction to System Administration and Virtual Machine
 
 ⚠️ This is not a 'how to' guide about Born2beroot 42 project ⚠️
 
@@ -28,17 +28,17 @@
 1. [💻 What is a Virtual Machine and What is it Used for? ⌨️](#1--what-is-a-virtual-machine-and-what-is-it-used-for-)
 2. [💿 Disk Partitions and Logical Volume Management 📀](#2--disk-partitions-and-logical-volume-management-)
 3. [🛡️ AppArmor 🔰](#3--apparmor-)
-4. [⬆️ Sudo ⛔](#4--sudo-)
-5. [📚 Apt and Aptitude 📖](#5--script-)
+4. [⚙️ Sudo ⛔](#4--sudo-)
+5. [📚 Apt and Aptitude 📖](#5--apt-and-aptitude-)
 6. [🔒 How to Set a Strong Password Policy 🔑](#6--crontab-)
 7. [🌐 SSH 📶](#6--crontab-)
 8. [🔥 FireWall 🧱](#6--crontab-)
 9. [👾 Scripts && Commands 🤖](#6--crontab-)
 10. [⏱️ Crontab ⏰](#6--crontab-)
 11. [Crontab ⏰](#6--crontab-)
-12. [Bonus ⭐](#8--bonus-%EF%B8%8F)
+12. [⭐ Bonus - WordPress ⭐](#8--bonus-%EF%B8%8F)
 
-## 1- _What is a Virtual Machine and What is it Used for?_ 💿
+## 1- _What is a Virtual Machine and What is it Used for?_ 💻
 
 ➤ A Virtual Machine is a simulation of an environment which uses software instead of physical computer hardware to run programs or a different operating system.
 
@@ -47,7 +47,7 @@
 ➤ A Virtual Machine can be useful too for testing a different operative system without the need of disk partitioning.
 
 
-## 2- _Disk Partitions and Logical Volume Management_ 🛠
+## 2- _Disk Partitions and Logical Volume Management_ 💿
 
 There is three types of disk partitions: Primaries, Secondaries and Logicals.
 
@@ -63,7 +63,7 @@ There is three types of disk partitions: Primaries, Secondaries and Logicals.
 ### What is the Logical Volume Management or LVM?
 ➤ Logical Volume Management is a system of managing logical volumes or filesystems that is much more flexible than the traditional method of partitioning a disk into one or more segments and formatting it with a single filesystem.
 
-## 3- AppArmor 🌀
+## 3- AppArmor 🛡️
 
 ➤ AppArmor is a Linux kernel security module which allows the system administrator to restrict the capabilities of a program.
 
@@ -71,59 +71,23 @@ There is three types of disk partitions: Primaries, Secondaries and Logicals.
 
 ## 4- _Sudo_ ⚙️
 
-➤ First of all, we must select ```Debian GNU/Linux```.
+➤ The meaning of 'sudo' is 'super userdo
 
-➤ Now we must introduce the encryptation password that we previously set. In my case ```Hello42bcn```.
+➤ Sudo is used to grant temporary access to a no root user and elevate the privileges to do some tasks, as it could be adding users or groups.
 
-<img width="714" alt="Captura de pantalla 2022-07-13 a las 20 47 26" src="https://user-images.githubusercontent.com/66915274/178808699-f1024129-5f90-41d0-a9a8-4806f5bc114b.png">
+## 5 - APT and Aptitude 📚
 
-➤ After that we must introduce the user and password that we created. In my case the user is ```gemartin``` and the password is ```Hola42spain```.
+➤ APT (Advanced Packaging Tool) is a free software user interface, under the conception of software package management.
 
-<img width="798" alt="Captura de pantalla 2022-07-13 a las 20 48 38" src="https://user-images.githubusercontent.com/66915274/178808994-664025ac-36df-4332-8e44-505ecd2ca305.png">
+➤ APT use to be enough for a common use but aptitude is an improved version of APT.
 
-### We have set everything ready for starting the setup of our Debian virtual machine❗️
-
-## 5 - Installing sudo & configuration of user and groups 👤
-
-1 ◦ The beginning of the installation starts with changing user to root so we can install sudo, for this purpouse we write ```su``` in the bash prompt and introduce the root password, in my case ```Hola42bcn```. Once we are done we write down the command ```apt install sudo``` so the package manager install the required packages for sudo.
-
-<img width="796" alt="Captura de pantalla 2022-07-14 a las 1 36 46" src="https://user-images.githubusercontent.com/66915274/178855273-fc76689c-224b-4368-b7b1-5d1954427aff.png"> 
-
-2 ◦ We must reboot machine so the changes can be applied. For that porpouse we will use the commando ```sudo reboot```.
-
-<img width="514" alt="Captura de pantalla 2022-07-14 a las 2 02 24" src="https://user-images.githubusercontent.com/66915274/178857108-a51988e1-084c-498c-86c6-98ab5a3b1305.png">
-
-3 ◦ Once the machine is rebooted we have to input the encryptation password and the login again. To check if sudo have been installed correctly we must switch to root user and then use the command ```sudo -V```; this command will show the sudo version (it will show extra info like the plugins installed). **OPTIONAL** ➤ In case of the output being too large we can redirect the command output to a file via ```sudo -V > file.txt``` and then edit the file using ```nano file.txt```. Other option would be putting ```| more``` after the command.
-
-<img width="799" alt="Captura de pantalla 2022-07-14 a las 2 09 59" src="https://user-images.githubusercontent.com/66915274/178857742-96356272-abd6-44c4-a3e6-5e8b9f471146.png">
-
-4 ◦ **Now, this step is for the everyone that didn't put his user as the other user asked by the subject during the installation of the system.** Still in the root user we will create an aditional user with ```sudo adduser <login>```. If you had already done it will show the same message as is the image.
-
-<img width="509" alt="Captura de pantalla 2022-07-14 a las 2 15 11" src="https://user-images.githubusercontent.com/66915274/178858240-95ce2a2b-004a-4bcb-981a-7990c1cc4fdd.png">
-
-5 ◦ We will create a new group called ```user42```. For that we must use ```sudo addgroup user42```.
-
-<img width="367" alt="Screen Shot 2022-10-26 at 6 30 52 PM" src="https://user-images.githubusercontent.com/66915274/198082677-d393243e-363a-4d1f-95d8-a6695336a47a.png">
-
-🧠 <b>What is GID❓</b> It's the group identifier, in short, Group 🆔.
-
-🤔 <b> Was the group created without problems? </b> Truth is that there is no sign of one, still we can check it using ```getent group <groupname>``` or we can also use ```cat /etc/group``` and see all groups and the users in any of them.
-
-6 ◦ With ```sudo adduser <user> <groupname>``` we can include a user to a group. We mst include out user in the groups ```sudo``` and ```user42```.
-
-<img width="422" alt="Screen Shot 2022-10-26 at 6 32 30 PM" src="https://user-images.githubusercontent.com/66915274/198083019-c5a442bb-c625-45ce-84e1-bcbca3a7dba5.png">
-
-<img width="404" alt="Screen Shot 2022-10-26 at 6 34 09 PM" src="https://user-images.githubusercontent.com/66915274/198083377-bd4162c6-317b-474f-8bc4-e542be4dcfde.png">
-
-7 ◦ Once we are done with that we can check it using ```getent group <groupname>``` or editing the /etc/group file using ```nano /etc/group```; the groups ```sudo``` and ```user42``` must be present with our user.
-
-<img width="328" alt="Screen Shot 2022-10-26 at 6 35 50 PM" src="https://user-images.githubusercontent.com/66915274/198083739-ad16e388-69c3-41d1-a061-e55dd66b0d14.png">
-
-<img width="151" alt="Screen Shot 2022-10-26 at 6 36 18 PM" src="https://user-images.githubusercontent.com/66915274/198083854-0fba5296-a49f-44cc-8427-59a692e69288.png">
-
-<img width="353" alt="Screen Shot 2022-10-26 at 6 39 22 PM" src="https://user-images.githubusercontent.com/66915274/198084464-f73352ee-ed21-478b-a44d-d86eb6d8a1cd.png">
-
-<img width="183" alt="Screen Shot 2022-10-26 at 6 38 25 PM" src="https://user-images.githubusercontent.com/66915274/198084311-45a50162-ff89-4e7d-a3c5-45e7048520a4.png">
+➤ Some differences between APT and Aptitude are:
+	
+   ↔️ APT offers a command-line interface and aptitude a visual interface.
+	
+   ↔️ Aptitude offers you an interactive mode displaying a list of the software packages and allows you to choose which packages you want to install or uninstall.
+	
+   ↔️ When facing a package conflict, APT will not fix the issue but aptitude will suggest a resolution that can do the job.
 
 ## 6 - Installing & configuring SSH 📶
 
