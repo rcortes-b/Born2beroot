@@ -193,8 +193,8 @@ After this command I could connect to my Virtual Machine from my original enviro
 ➤ In this part, I did a script which every time is executed displays some data of the environment.
 ➤ I will summarize the commands but the expected result would be something like this:
 
-***INSERTAR LA IMAGEN DE MI PERFIL --- USO TEMPORAL DE LA IMAGEN DE GEMARTIN :D 
-<img width="796" alt="182506484-f5a095b8-4751-461e-a114-f8e36b4cfa9a" src="https://github.com/rcortes-b/Born2beroot/assets/150854181/9155565e-13e8-4914-9bc0-2ae29d02c9dc">
+<img width="800" alt="Screen Shot 2024-02-21 at 5 58 14 PM" src="https://github.com/rcortes-b/Born2beroot/assets/150854181/c99f3bf2-cfe0-47d6-bc56-e15fbd885b2b">
+
 
 ➤ Commands
 
