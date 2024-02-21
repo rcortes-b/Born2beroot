@@ -33,7 +33,7 @@
 6. [🔒 How to Set a Strong Password Policy 🔑](#6---how-to-set-a-strong-password-policy-)
 7. [🌐 SSH 📶](#7-ssh-)
 8. [🔥 FireWall 🧱](#8-firewall-)
-9. [👾 Scripts && Commads 🤖](#9-script--commands-)
+9. [👾 Scripts && Commads 🤖](#9-scripts--commands-)
 10. [⏱️ Crontab ⏰](#10-crontab-)
 11. [⭐ Bonus - WordPress ⭐](#11--bonus---wordpress-)
 
